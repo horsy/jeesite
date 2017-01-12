@@ -59,13 +59,116 @@
 	
 	<!-- 设定主仓库，按设定顺序进行查找。 -->
 	<repositories>
-	
+
 		<repository>
 			<id>jeesite-repos</id>
 			<name>Jeesite Repository</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</repository>
+
+		<repository>
+			<id>oschina-repos</id>
+			<name>Oschina Releases</name>
+			<url>http://maven.oschina.net/content/groups/public</url>
+		</repository>
+
+		<repository>
+			<id>java-repos</id>
+			<name>Java Repository</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+
+		<repository>
+			<id>springsource-repos</id>
+			<name>SpringSource Repository</name>
+			<url>http://repo.spring.io/release/</url>
+		</repository>
+
+		<repository>
+			<id>central-repos</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url>
+		</repository>
+
+		<repository>
+			<id>central-repos2</id>
+			<name>Central Repository 2</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>activiti-repos</id>
+			<name>Activiti Repository</name>
+			<url>https://maven.alfresco.com/nexus/content/groups/public</url>
+		</repository>
+
+		<repository>
+			<id>activiti-repos2</id>
+			<name>Activiti Repository 2</name>
+			<url>https://app.camunda.com/nexus/content/groups/public</url>
+		</repository>
+
+		<repository>
+			<id>thinkgem-repos</id>
+			<name>ThinkGem Repository</name>
+			<url>http://git.oschina.net/thinkgem/repos/raw/master</url>
+		</repository>
+
+		<repository>
+			<id>thinkgem-repos2</id>
+			<name>ThinkGem Repository 2</name>
+			<url>https://raw.github.com/thinkgem/repository/master</url>
+		</repository>
 		
+		<repository>
+			<id>aliyun maven</id>
+			<name>aliyun maven</name>
+      		<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+		
+		<repository>
+			<id>jboss maven</id>
+			<name>jboss maven</name>
+      		<url>http://repository.jboss.com/maven2/</url>
+		</repository>
+		
+		<repository>
+			<id>sonatype maven</id>
+			<name>sonatype maven</name>
+      		<url>https://oss.sonatype.org/content/repositories/releases/</url>
+		</repository>
+		
+		
+		
+		<repository>
+			<id>central maven</id>
+			<name>central maven</name>
+      		<url>http://central.maven.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>springlibs maven</id>
+			<name>springlibs maven</name>
+      		<url>http://repo.spring.io/libs-milestone/</url>
+		</repository>
+
+		<repository>
+			<id>jahia</id>
+			<name>jahia</name>
+      		<url>http://maven.jahia.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>Atlassian</id>
+			<name>Atlassian</name>
+      		<url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+		</repository>
+  
+		<repository>
+			<id>ibiblio maven</id>
+			<name>ibiblio maven</name>
+      		<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/</url>
+		</repository>
 	</repositories>
 	
 	<!-- 设定插件仓库 -->
