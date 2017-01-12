@@ -4,9 +4,7 @@
 <html>
 <head>
 	<title>${article.title} - ${category.name}</title>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <link rel="stylesheet" href="${ctx }/../static/weui/weui.min.css"/>
+	<meta name="decorator" content="cms_default_mobile"/>
 </head>
 <body>
 	<article class="weui-article">
