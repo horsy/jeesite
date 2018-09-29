@@ -156,6 +156,11 @@ public class FrontController extends BaseController{
 					Page<Article> page = new Page<Article>(pageNo, pageSize);
 					//System.out.println(page.getPageNo());
 					page = articleService.findPage(page, new Article(category), false);
+					for(Article article:page.getList()) {
+						if(StringUtils.isBlank(article.getImage())) {
+							article.setImage(Global.getDefaultImage());
+						}
+					}
 					model.addAttribute("page", page);
 					// 如果第一个子栏目为简介类栏目，则获取该栏目第一篇文章
 					if ("2".equals(category.getShowModes())){
@@ -181,7 +186,7 @@ public class FrontController extends BaseController{
 				}
 	            CmsUtils.addViewConfigAttribute(model, category);
                 site =siteService.get(category.getSite().getId());
-                //System.out.println("else 栏目第一条内容 _2 :"+category.getSite().getTheme()+","+site.getTheme());
+//                System.out.println("else 栏目第一条内容 _2 :"+category.getSite().getTheme()+","+site.getTheme());
 				return "modules/cms/front/themes/"+siteService.get(category.getSite().getId()).getTheme()+view;
 				//return "modules/cms/front/themes/"+category.getSite().getTheme()+view;
 			}

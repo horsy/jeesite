@@ -80,6 +80,18 @@ public class Global {
 	}
 	
 	/**
+	 * 默认图片路径
+	 * 
+	 * @Comments:  <对此方法的描述，可以引用系统设计中的描述>
+	 * @author horsy(何世壹) [hsy@smarthse.cn]
+	 * @since 2018年9月29日-上午10:26:00
+	 * @return
+	 */
+	public static String getDefaultImage() {
+		return getConfig("defaultImage");
+	}
+	
+	/**
 	 * 获取管理端根路径
 	 */
 	public static String getAdminPath() {
