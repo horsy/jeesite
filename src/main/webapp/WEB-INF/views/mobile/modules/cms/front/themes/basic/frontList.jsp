@@ -5,6 +5,9 @@
 <head>
 	<title>${category.name}</title>
 	<meta name="decorator" content="cms_default_mobile"/>
+	<script type="text/javascript">
+		document.title ="${category.name}";
+	</script>
 </head>
 <body>
 <c:if test="${category.module eq 'article'}">

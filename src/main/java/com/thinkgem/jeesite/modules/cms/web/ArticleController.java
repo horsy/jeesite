@@ -78,6 +78,7 @@ public class ArticleController extends BaseController {
         model.addAttribute("page", page);
 		return "modules/cms/articleList";
 	}
+	
 
 	@RequiresPermissions("cms:article:view")
 	@RequestMapping(value = "form")

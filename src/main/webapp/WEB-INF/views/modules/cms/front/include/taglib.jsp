@@ -13,3 +13,4 @@
 <c:set var="ctxStaticFront" value="${ctxStatic}/modules/cms/front"/>
 <c:set var="ctxStaticTheme" value="${ctxStaticFront}/themes/${site.theme}"/>
 <c:set var="urlSuffix" value="${fns:getUrlSuffix()}"/>
+<c:set var="titleName" value="\u6cf8\u5dde\u5e02\u51ef\u79be\u519c\u4e1a"></c:set>
