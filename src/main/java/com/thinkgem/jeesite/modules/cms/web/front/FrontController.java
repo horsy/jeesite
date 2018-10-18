@@ -273,40 +273,23 @@ public class FrontController extends BaseController{
 		}
 		return "error/404";
 	}
-	
-	private static void setSplit(List<DateSplit> list,String dataStr,int num,int type) {
-    	//大小数平均
-    	DateSplit need = new DateSplit();
-    	need.setDataStr(dataStr);
-    	need.setNum(num);
-    	need.setType(type);
-    	list.add(need);
-    }
+
 
 	@RequestMapping(value = {"flcp"})
 	public String flcp(FlcpFilterDate data,HttpServletRequest request, HttpServletResponse response, Model model) {
 		if(StringUtils.isBlank(data.getDataStr())) {
 			data.setDataStr("1,2,3,4,5,6,7,8,9,10,11,12");
 		}
-		if(data.getIsBigSmall()) {
-		//大小数平均
-			setSplit(data.getSplitList(),"7,8,9,10,11,12",3,1);
-			setSplit(data.getSplitList(),"7,8,9,10,11,12",2,0);
+		List<String> result =null;
+		if(data.getSplitList().size()>0) {
+			result = PLZH.combinationSelect(data.getDataStr(),data.getResultNum(),data.getSplitList());
+			model.addAttribute("result", result);
 		}
-		if(data.getIsJO()) {
-		//奇、偶数平均
-	    	setSplit(data.getSplitList(),"1,3,5,7,9,11",3,1);
-	    	setSplit(data.getSplitList(),"1,3,5,7,9,11",2,0);
+		if(result != null && result.size()>0 ) {
+			return "modules/cms/front/themes/basic/flcpView";
+		}else {
+			return "modules/cms/front/themes/basic/flcp";
 		}
-		if(data.getIsZS()) {
-	    	//质数平均
-	    	setSplit(data.getSplitList(),"1,2,3,5,7,11",3,1);
-	    	setSplit(data.getSplitList(),"1,2,3,5,7,11",2,0);
-		}
-		
-		List<String> result = PLZH.combinationSelect(data.getDataStr(),data.getResultNum(),data.getSplitList());
-		model.addAttribute("result", result);
-		return "modules/cms/front/themes/basic/flcp";
 	}
 	
 	/**

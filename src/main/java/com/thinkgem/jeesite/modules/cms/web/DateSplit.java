@@ -12,32 +12,25 @@ public class DateSplit implements Serializable {
 
 	
 	String dataStr;
-	int num;
+	String numStr;
 
-	/**
-	 * 1、最多出现num数量
-	 * 0、最少出现num数量
-	 */
-	int type;
 	public String getDataStr() {
+		if(dataStr==null) {
+			return dataStr;
+		}
 		return dataStr.replaceAll("，", ",");
 	}
 	public void setDataStr(String dataStr) {
 		this.dataStr = dataStr;
 	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	
 
-
+	public String getNumStr() {
+		if(numStr == null) {
+			return numStr;
+		}
+		return numStr.replaceAll("，", ",");
+	}
+	public void setNumStr(String numStr) {
+		this.numStr = numStr;
+	}
 }

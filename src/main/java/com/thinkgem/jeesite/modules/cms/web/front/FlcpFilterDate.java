@@ -15,10 +15,8 @@ public class FlcpFilterDate implements Serializable {
 	List<DateSplit> splitList = new ArrayList<DateSplit>();
 	
 	Integer resultNum = 5;
-	Boolean isBigSmall = true;
-	Boolean isJO =false;
-	Boolean isZS = false;
 	String dataStr;
+	String spanStr;
 	
 	public String getDataStr() {
 		return dataStr;
@@ -32,29 +30,18 @@ public class FlcpFilterDate implements Serializable {
 	public void setResultNum(Integer resultNum) {
 		this.resultNum = resultNum;
 	}
-	public Boolean getIsBigSmall() {
-		return isBigSmall;
-	}
-	public void setIsBigSmall(Boolean isBigSmall) {
-		this.isBigSmall = isBigSmall;
-	}
-	public Boolean getIsJO() {
-		return isJO;
-	}
-	public void setIsJO(Boolean isJO) {
-		this.isJO = isJO;
-	}
-	public Boolean getIsZS() {
-		return isZS;
-	}
-	public void setIsZS(Boolean isZS) {
-		this.isZS = isZS;
-	}
+	
 	public List<DateSplit> getSplitList() {
 		return splitList;
 	}
 	public void setSplitList(List<DateSplit> splitList) {
 		this.splitList = splitList;
+	}
+	public String getSpanStr() {
+		return spanStr;
+	}
+	public void setSpanStr(String spanStr) {
+		this.spanStr = spanStr;
 	}
 	
 	

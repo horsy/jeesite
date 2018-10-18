@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.thinkgem.jeesite.common.utils.StringUtils;
+
 public class PLZH {
 
 	private static long factorial(int n) {
@@ -48,23 +50,39 @@ public class PLZH {
 		if (resultCount > resultLen) { // 全部选择完时，输出组合结果
 
 			for(DateSplit dataSplit:splitList) {
-				String[] sList = dataSplit.getDataStr().split(",");
-				int sNum =0;
-				if(dataSplit.getType() == Type.max.ordinal()) {
-					//不能大于
+				if(StringUtils.isBlank(dataSplit.getNumStr())) {
+					continue;
+				}
+				String[]numArray=dataSplit.getNumStr().split(",");
+				if(StringUtils.isBlank(dataSplit.getDataStr())) {
+					//跨度
+					int min =0;
+					int max = 0;
 					for(int kk=0;kk<resultList.length;kk++) {
-						for(int i=0;i<sList.length;i++) {
-							if(sList[i].equals(resultList[kk])) {
-								sNum++;
-								break;
-							}
+						if(min == 0	) {
+							min = Integer.valueOf(resultList[kk]);
+						}else if(Integer.valueOf(min).compareTo(Integer.valueOf(resultList[kk]))>0) {
+							min = Integer.valueOf(resultList[kk]);
+						}
+						if(max == 0) {
+							max= Integer.valueOf(resultList[kk]);
+						}else if(Integer.valueOf(max).compareTo(Integer.valueOf(resultList[kk]))<0) {
+							max = Integer.valueOf(resultList[kk]);
 						}
 					}
-					if(sNum>dataSplit.getNum()) {
+					boolean isInSpan=false;
+					String spanNum=String.valueOf(max-min);
+					for(String num:numArray) {
+						if(num.equals(spanNum)) {
+							isInSpan = true;
+						}
+					}
+					if(!isInSpan) {
 						return result;
 					}
 				}else {
-					//不能少于
+					String[] sList = dataSplit.getDataStr().split(",");
+					int sNum =0;
 					for(int kk=0;kk<resultList.length;kk++) {
 						for(int i=0;i<sList.length;i++) {
 							if(sList[i].equals(resultList[kk])) {
@@ -73,24 +91,27 @@ public class PLZH {
 							}
 						}
 					}
-					if(sNum<dataSplit.getNum()) {
+					boolean isIn = false;//是否在给定的数据范围内
+					for(String num:numArray) {
+						if(num.equals(sNum+"")) {
+							isIn = true;
+							break;
+						}
+					}
+					if(!isIn) {
 						return result;
 					}
 				}
 			}
 			
-//			System.out.println(Arrays.asList(resultList));
 			StringBuffer strBuffer = new StringBuffer();
 			for(int kk=0;kk<resultList.length;kk++) {
-//				System.out.print(resultList[kk]);
 				strBuffer.append(resultList[kk]);
 				if(kk+1<resultList.length) {
-//					System.out.print("-");
 					strBuffer.append("-");
 				}
 			}
 			result.add(strBuffer.toString());
-//			System.out.println("");
 			return result;
 		}
 
