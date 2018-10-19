@@ -7,7 +7,7 @@
 	<script src="${ctxStatic}/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
 	<meta name="decorator" content="cms_default_mobile"/>
 	<script type="text/javascript">
-	var num=3;
+	var num=5;
 	function addMoreFilter(obj){
 		var filterTemplate = $("#filterTemplate").html();
 		var replaceStr = "_num_";
@@ -45,31 +45,41 @@
 <form action="${ctx }/flcp" method="post" id="flcpForm">
 <div class="weui-cells__title">规则<a href="javascript:;" style="float:right;" onclick = "javascript:deleteThisFilter(this);" class="weui-cell_link">删除 </a></div>
 <div class="weui-cells weui-cells_form">
- 	<div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">待选数字池</label></div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="text" name = "splitList[0].dataStr" value="7,8,9,10,11,12" placeholder=""/>
-        </div>
-	</div>
 	<div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">出现的数量</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">大数数量</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" name = "splitList[0].numStr" value="0,3,4" placeholder=""/>
+        	<input class="weui-input" type="hidden" name = "splitList[0].dataStr" value="7,8,9,10,11,12" placeholder=""/>
+            <input class="weui-input" type="text" name = "splitList[0].numStr" value="2,3" placeholder=""/>
         </div>
 	</div>
 </div>
 <div class="weui-cells__title">规则<a href="javascript:;" style="float:right;" onclick = "javascript:deleteThisFilter(this);" class="weui-cell_link">删除 </a></div>
 <div class="weui-cells weui-cells_form">
- 	<div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">待选数字池</label></div>
+	<div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">奇数数量</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" name = "splitList[1].dataStr" value="1,3,5,7,9,11" placeholder=""/>
+        	<input class="weui-input" type="hidden" name = "splitList[1].dataStr" value="1,3,5,7,9,11" placeholder=""/>
+            <input class="weui-input" type="text" name = "splitList[1].numStr" value="2,3" placeholder=""/>
         </div>
 	</div>
+</div>
+<div class="weui-cells__title">规则<a href="javascript:;" style="float:right;" onclick = "javascript:deleteThisFilter(this);" class="weui-cell_link">删除 </a></div>
+<div class="weui-cells weui-cells_form">
 	<div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label">出现的数量</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">质数数量</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" name = "splitList[1].numStr" value="0,3,4" placeholder=""/>
+        	<input class="weui-input" type="hidden" name = "splitList[2].dataStr" value="1,2,3,5,7,11" placeholder=""/>
+            <input class="weui-input" type="text" name = "splitList[2].numStr" value="2,3" placeholder=""/>
+        </div>
+	</div>
+</div>
+<div class="weui-cells__title">规则<a href="javascript:;" style="float:right;" onclick = "javascript:deleteThisFilter(this);" class="weui-cell_link">删除 </a></div>
+<div class="weui-cells weui-cells_form">
+	<div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">数据和</label></div>
+        <div class="weui-cell__bd">
+        	<input class="weui-input" type="hidden" name = "splitList[3].dataStr" value="13" placeholder=""/>
+            <input class="weui-input" type="text" name = "splitList[3].numStr" value="30,31,33,34,35,36,37,38,39" placeholder=""/>
         </div>
 	</div>
 </div>
@@ -78,7 +88,8 @@
 	<div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label">跨度</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" name = "splitList[2].numStr" value="8,9,10,11" placeholder=""/>
+        	<input class="weui-input" type="hidden" name = "splitList[4].dataStr" value="14" placeholder=""/>
+            <input class="weui-input" type="text" name = "splitList[4].numStr" value="8,9,10,11" placeholder=""/>
         </div>
 	</div>
 </div>

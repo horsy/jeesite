@@ -50,11 +50,28 @@ public class PLZH {
 		if (resultCount > resultLen) { // 全部选择完时，输出组合结果
 
 			for(DateSplit dataSplit:splitList) {
-				if(StringUtils.isBlank(dataSplit.getNumStr())) {
+				if(StringUtils.isBlank(dataSplit.getNumStr())||StringUtils.isBlank(dataSplit.getDataStr())) {
 					continue;
 				}
 				String[]numArray=dataSplit.getNumStr().split(",");
-				if(StringUtils.isBlank(dataSplit.getDataStr())) {
+				if("13".equals(dataSplit.getDataStr())) {
+					//数据和
+					Integer sum=0;
+					for(int kk=0;kk<resultList.length;kk++) {
+						sum= sum+Integer.valueOf(resultList[kk]);
+					}
+					boolean isInSum=false;
+					for(String num:numArray) {
+						if(num.equals(sum+"")) {
+							isInSum = true;
+							break;
+						}
+					}
+					if(!isInSum) {
+						return result;
+					}
+					
+				}else if("14".equals(dataSplit.getDataStr())) {
 					//跨度
 					int min =0;
 					int max = 0;
@@ -75,6 +92,7 @@ public class PLZH {
 					for(String num:numArray) {
 						if(num.equals(spanNum)) {
 							isInSpan = true;
+							break;
 						}
 					}
 					if(!isInSpan) {
