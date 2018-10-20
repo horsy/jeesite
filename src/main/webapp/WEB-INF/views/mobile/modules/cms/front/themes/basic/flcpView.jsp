@@ -17,8 +17,20 @@
 </div>
 	
 <article class="weui-article">
-<c:forEach var="r" items="${result }">
-<h2 class="title">${r }</h2><br>
+<c:forEach var="r" items="${result }" varStatus="status">
+<fmt:parseNumber var="intVar4" integerOnly="true" value="${(status.index+6)/5}" />
+<c:if test="${status.index%5==0 }">
+<div class="weui-cells__title">第${intVar4 }张</div>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+        </c:if>
+            <p>${r }</p>
+        <c:if test="${(status.index-4)%5==0 }">
+        </div> 
+    </div>
+</div>
+</c:if>
 </c:forEach>
 </article>
 </body>

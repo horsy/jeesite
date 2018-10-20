@@ -1,12 +1,69 @@
 package com.thinkgem.jeesite.modules.cms.web;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 
 public class PLZH {
+	
+	
+	public static void main(String[] args) {
+		try {
+			String info = readInfoFromPdf417Image("e:\\kl122.jpg", "UTF-8");
+			System.out.println(info);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 功能：从图片的byte数组中读取内容
+	 * @param imgBuff			二维码图片流的byte[]
+	 * @param encode			编码格式，比如：GBK，UTF-8
+	 * @return
+	 * @throws Exception
+	 */
+	public static String readInfoFromPdf417Image(String imageFilePath, String encode)
+			throws Exception {
+//		if (imgBuff == null || imgBuff.length < 1) {
+//			throw new Exception("二维条码的图片内容不能为空！");
+//		}
+
+//		InputStream is = new ByteArrayInputStream(imgBuff);
+
+		BufferedImage image = ImageIO.read(new File(imageFilePath));
+
+		LuminanceSource source = new BufferedImageLuminanceSource(image);
+
+		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+		Result decodedValue = new MultiFormatReader().decode(bitmap);
+
+		if (decodedValue == null) {
+			return "";
+		}
+
+		String resultText = decodedValue.getText();
+		resultText = StringUtils.trimToEmpty(resultText);
+		byte[] b = resultText.getBytes("ISO-8859-1");
+		return new String(b, encode);
+	}
 
 	private static long factorial(int n) {
 		return (n > 1) ? n * factorial(n - 1) : 1;
@@ -124,6 +181,9 @@ public class PLZH {
 			
 			StringBuffer strBuffer = new StringBuffer();
 			for(int kk=0;kk<resultList.length;kk++) {
+				if(resultList[kk].length()==1) {
+					strBuffer.append("0");
+				}
 				strBuffer.append(resultList[kk]);
 				if(kk+1<resultList.length) {
 					strBuffer.append("-");

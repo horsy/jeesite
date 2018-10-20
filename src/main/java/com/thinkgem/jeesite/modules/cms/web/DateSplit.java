@@ -18,7 +18,7 @@ public class DateSplit implements Serializable {
 		if(dataStr==null) {
 			return dataStr;
 		}
-		return dataStr.replaceAll("，", ",");
+		return dataStr.replaceAll("，", ",").replaceAll("\\.", ",");
 	}
 	public void setDataStr(String dataStr) {
 		this.dataStr = dataStr;
@@ -28,7 +28,7 @@ public class DateSplit implements Serializable {
 		if(numStr == null) {
 			return numStr;
 		}
-		return numStr.replaceAll("，", ",");
+		return numStr.replaceAll("，", ",").replaceAll("\\.", ",");
 	}
 	public void setNumStr(String numStr) {
 		this.numStr = numStr;
